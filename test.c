@@ -59,7 +59,7 @@ void test_encrypt_and_print(void) {
     printf("Encryption Failed\n");
 }
 
-/*void test_decrypt_and_print(void) {
+void test_decrypt_and_print(void) {
     printf("Decrypt Test");
     char input_buffer[100];
     char input[] = "TEST";
@@ -97,17 +97,17 @@ void test_encrypt_and_print(void) {
     }
     printf("Decryption Failed\n");
 }
-*/
+
 TestCase test_cases[] = {
     {test_greeting, "greeting"},
     {test_get_user_choice, "get_user_choice"},
     {test_encrypt_and_print, "encrypt_and_print"},
-    //{test_decrypt_and_print, "decrypt_and_print"},
+    {test_decrypt_and_print, "decrypt_and_print"},
 };
 
 int main(void) {
     size_t num_tests = sizeof(test_cases) / sizeof(TestCase);
-    //printf("Number of tests: %lu", num_tests);
+    printf("Number of tests: %lu", num_tests);
     for (size_t i = 0; i < num_tests; i++) {
         printf("\nRunning test %s...\n", test_cases[i].name);
         test_cases[i].function();
