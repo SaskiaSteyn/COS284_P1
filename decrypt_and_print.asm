@@ -1,7 +1,7 @@
 ; ==========================
-; Group member 01: Nicolaas Johan Jansen van Rensburg_u22590732
-; Group member 02: Saskia Steyn_u17267162
-; Group member 03: Rorisang Manemela_u21428574
+; Group member 01: Name_Surname_student-nr
+; Group member 02: Name_Surname_student-nr
+; Group member 03: Name_Surname_student-nr
 ; ==========================
 
 section .data
