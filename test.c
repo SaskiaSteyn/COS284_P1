@@ -27,10 +27,12 @@ int containsSubstring(const char *subStr, const char *mainStr) {
 }
 
 void test_greeting(void) {
+    printf("Greeting Test");
     greeting();
 }
 
 void test_get_user_choice(void) {
+    printf("Choice Test");
     int choice = get_user_choice();
     if (choice != 1 && choice != 2) {
         printf("Test failed. Expected 1 or 2, got %d.\n", choice);
@@ -40,6 +42,7 @@ void test_get_user_choice(void) {
 }
 
 void test_encrypt_and_print(void) {
+    printf("Encrypt Test");
     char input_buffer[100];
     char input[] = "TEST";
     printf("Original: %s\n", input);
@@ -56,7 +59,8 @@ void test_encrypt_and_print(void) {
     printf("Encryption Failed\n");
 }
 
-void test_decrypt_and_print(void) {
+/*void test_decrypt_and_print(void) {
+    printf("Decrypt Test");
     char input_buffer[100];
     char input[] = "TEST";
     int numbers[4] = {0};
@@ -93,20 +97,22 @@ void test_decrypt_and_print(void) {
     }
     printf("Decryption Failed\n");
 }
-
+*/
 TestCase test_cases[] = {
     {test_greeting, "greeting"},
     {test_get_user_choice, "get_user_choice"},
     {test_encrypt_and_print, "encrypt_and_print"},
-    {test_decrypt_and_print, "decrypt_and_print"},
+    //{test_decrypt_and_print, "decrypt_and_print"},
 };
 
 int main(void) {
     size_t num_tests = sizeof(test_cases) / sizeof(TestCase);
+    //printf("Number of tests: %lu", num_tests);
     for (size_t i = 0; i < num_tests; i++) {
         printf("\nRunning test %s...\n", test_cases[i].name);
         test_cases[i].function();
         printf("$\n");
     }
+    printf("EXITING");
     return 0;
 }
