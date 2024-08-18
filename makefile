@@ -10,13 +10,13 @@ VPATH := src:src/helpers:test
 all: $(OBJ_DIR) $(BIN_DIR) $(EXECUTABLE)
 
 $(EXECUTABLE): $(ASM_OBJECTS) $(C_TEST_OBJECTS)
-	gcc-14 -no-pie -g -march=armv8.5-a -o $@ $^
+	gcc -no-pie -g -m64 -o $@ $^
 
 $(OBJ_DIR)/%.o: %.asm
 	yasm -f elf64 -g dwarf2 $< -o $@
 
 $(OBJ_DIR)/%.o: %.c
-	gcc-14 -g -march=armv8.5-a -c $< -o $@
+	gcc -g -m64 -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)

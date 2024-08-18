@@ -5,12 +5,12 @@
 ; ==========================
 
 section .data
-    fmt db "%c", 0
+    fmt db "%d ", 0
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
     ; Your data goes here
     ; ==========================
-    xor_key dd 0x73113777
+    encryptionKey dd 0x73113777
 
 section .bss
     ; ==========================
@@ -52,7 +52,7 @@ encrypt_and_print:
     mov rdx, 4                      ; maximum number of bytes to read (up to 4)
     syscall                         
 
-    ; Display the output label to the user
+    ; Print output
     mov rax, 1                      ; writing the number
     mov rdi, 1                      
     mov rsi, encryptedText          
@@ -64,25 +64,25 @@ encrypt_and_print:
     ; Encrypting the first character
     movzx rax, byte [message]       ; move the first char to rax
     rol rax, 4                      ; Rotating the bit left by 4
-    xor rax, [xor_key]              ; XOR with the encryption key
+    xor rax, [encryptionKey]              ; XOR with the encryption key
     call print_char_32              ; Printing the encrypted char
 
     ; Encrypting the second character
     movzx rax, byte [message+1]     ; move the second char to rax
     rol rax, 4                      ; Rotating the bit left by 4
-    xor rax, [xor_key]              ; XOR with the encryption key
+    xor rax, [encryptionKey]              ; XOR with the encryption key
     call print_char_32              ; Printing the encrypted char
 
     ; Encrypting the third character
     movzx rax, byte [message+2]     ; move the third char to rax
     rol rax, 4                      ; Rotating the bit left by 4
-    xor rax, [xor_key]              ; XOR with the encryption key
+    xor rax, [encryptionKey]              ; XOR with the encryption key
     call print_char_32              ; Printing the encrypted char
 
     ; Encrypting the fourth character
     movzx rax, byte [message+3]     ; move the fourth char to rax
     rol rax, 4                      ; Rotating the bit left by 4
-    xor rax, [xor_key]              ; XOR with the encryption key
+    xor rax, [encryptionKey]              ; XOR with the encryption key
     call print_char_32              ; Printing the encrypted char
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing
