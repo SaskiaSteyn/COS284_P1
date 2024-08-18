@@ -8,7 +8,7 @@ section .data
     ; ==========================
     ; Your data goes here
     ; ==========================
-    message:     db 'Wecome agent. What do you want to do, Encrypt [1] or Decrypt [2]?', 0xA,10
+    message:     db 'Welcome agent. What do you want to do, Encrypt [1] or Decrypt [2]?', 0xA,10
 	message_len:  equ $-message 
 
 section .text
@@ -25,9 +25,9 @@ greeting:
 	mov rdx,message_len    
 	syscall   
 	
-	mov rax, 60       
-    xor rdi, rdi    
-    syscall 
+	; mov rax, 60       
+    ; xor rdi, rdi    
+    ; syscall 
 
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing
